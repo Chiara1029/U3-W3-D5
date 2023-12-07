@@ -1,0 +1,11 @@
+<div class="container">
+  <div *ngFor="let movie of movies">
+    <div class="card" style="width: 18rem">
+      <img src="{{ movie.poster_path }}" class="card-img-top" alt="product" />
+      <div class="card-body">
+        <h5 class="card-title">{{ movie.original_title }}</h5>
+        <a class="btn btn-danger">Save Fav</a>
+      </div>
+    </div>
+  </div>
+</div>
