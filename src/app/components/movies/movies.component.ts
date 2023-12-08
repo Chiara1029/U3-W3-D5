@@ -5,6 +5,7 @@ import { Favorite } from 'src/app/models/favorite';
 import { AuthService } from 'src/app/auth/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { UserInfo } from 'src/app/models/user-info';
 
 @Component({
   selector: 'app-movies',
@@ -15,6 +16,8 @@ export class MoviesComponent implements OnInit {
   movies!: Movie[];
   userId: number = 0;
   apiURL = environment.apiURL;
+  favorities!: Favorite[];
+  userInfo: UserInfo | null = null;
 
   constructor(
     private movieSrv: MovieService,
@@ -29,7 +32,24 @@ export class MoviesComponent implements OnInit {
       this.movies = movies;
       console.log(movies);
       this.userId = this.authSrv.getUserId() || 0;
+
+      this.http
+        .get<Favorite[]>(`${this.apiURL}/favorites`)
+        .subscribe((response) => {
+          console.log('Lista preferiti:', response);
+          let update: Favorite[] = response.filter(
+            (movie) => movie.userId === this.userId
+          );
+          this.favorities = update;
+        });
     });
+  }
+
+  isFavorite(movieId: number): boolean {
+    return (
+      Array.isArray(this.favorities) &&
+      this.favorities.some((movie) => movieId === movie.movieId)
+    );
   }
 
   addToFavs(movie: Movie): void {
@@ -43,28 +63,36 @@ export class MoviesComponent implements OnInit {
       .subscribe((response) => {
         console.log('Aggiunto ai preferiti:', response);
       });
-
-    const addBtn = document.getElementById('addBtn') as HTMLAnchorElement;
-    addBtn.classList.add('d-none');
-    const delBtn = document.getElementById('delBtn') as HTMLAnchorElement;
-    delBtn.classList.remove('d-none');
-    delBtn.classList.add('d-flex');
+    this.http
+      .get<Favorite[]>(`${this.apiURL}/favorites`)
+      .subscribe((response) => {
+        console.log('Lista preferiti:', response);
+        let update: Favorite[] = response.filter(
+          (movie) => movie.userId === this.userId
+        );
+        this.favorities = update;
+      });
   }
 
   deleteFav(movie: Movie): void {
-    const favorite: Favorite = {
-      movieId: movie.id,
-      userId: this.userId,
-    };
+    let selectedItem: any = this.favorities.find(
+      (movie) => movie.movieId === movie.movieId
+    );
 
-    const movies = this.movies;
+    this.http
+      .delete<Favorite>(`http://localhost:4201/favorites/${selectedItem.id}`)
+      .subscribe((response) => {
+        console.log('Eliminato dai preferiti:', response);
+      });
 
-    // if (movies.id === favorite.movieId) {
-    //   this.http
-    //   .delete<Favorite>(`http://localhost:4201/favorites/${id}`, favorite)
-    //   .subscribe((response) => {
-    //     console.log('Eliminato dai preferiti:', response);
-    //   });
-    // }
+    this.http
+      .get<Favorite[]>(`${this.apiURL}/favorites`)
+      .subscribe((response) => {
+        console.log('Lista preferiti:', response);
+        let update: Favorite[] = response.filter(
+          (movie) => movie.userId === this.userId
+        );
+        this.favorities = update;
+      });
   }
 }

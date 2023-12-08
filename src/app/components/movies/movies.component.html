@@ -9,12 +9,26 @@
         />
         <div class="card-body">
           <h5 class="card-title text-truncate">{{ movie.title }}</h5>
-          <a class="btn" (click)="addToFavs(movie)" id="addBtn"
-            ><i class="bi bi-heart"></i
-          ></a>
-          <a class="btn d-none" (click)="addToFavs(movie)" id="delBtn"
-            ><i class="bi bi-heart"></i
-          ></a>
+          <button
+            class="btn add-btn"
+            [ngClass]="{
+              'd-none': isFavorite(movie.id),
+              'd-block': !isFavorite(movie.id)
+            }"
+            (click)="addToFavs(movie)"
+          >
+            <i class="bi bi-heart"></i>
+          </button>
+          <button
+            class="btn del-btn"
+            [ngClass]="{
+              'd-none': !isFavorite(movie.id),
+              'd-block': isFavorite(movie.id)
+            }"
+            (click)="deleteFav(movie)"
+          >
+            <i class="bi bi-heart"></i>
+          </button>
         </div>
       </div>
     </div>
