@@ -11,9 +11,7 @@ import { NgForm } from '@angular/forms';
 export class RegisterComponent implements OnInit {
   constructor(private authSrv: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.authSrv.restore();
-  }
+  ngOnInit(): void {}
 
   signUp(form: NgForm) {
     console.log(form.value);

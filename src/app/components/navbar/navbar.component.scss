@@ -1,6 +1,22 @@
-// a{
-//     color: white;
-// }
-// .navbar{
-//     background-color: black;
-// }
+a{
+    color: #FFD159;
+}
+.navbar{
+    background-color: #561316;
+    display: flex;
+    align-items: center;
+}
+h6{
+    padding: 0;
+    margin: 0;
+    color: #FFD159;
+}
+
+.btn{
+    background-color: #2b070a;
+    border:none
+}
+
+nav{
+    height: 4rem;
+}

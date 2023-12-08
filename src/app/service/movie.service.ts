@@ -14,4 +14,8 @@ export class MovieService {
   getMovies() {
     return this.http.get<Movie[]>(`${this.apiURL}/movies-popular`);
   }
+
+  getTopMovies() {
+    return this.http.get<Movie[]>(`${this.apiURL}/movies-toprated`);
+  }
 }

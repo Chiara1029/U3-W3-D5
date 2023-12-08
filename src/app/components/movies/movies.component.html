@@ -1,10 +1,21 @@
-<div class="container">
-  <div *ngFor="let movie of movies">
-    <div class="card" style="width: 18rem">
-      <img src="{{ movie.poster_path }}" class="card-img-top" alt="product" />
-      <div class="card-body">
-        <h5 class="card-title">{{ movie.original_title }}</h5>
-        <a class="btn btn-danger">Save Fav</a>
+<div class="container mt-3">
+  <div class="row">
+    <div *ngFor="let movie of movies" class="col mb-3">
+      <div class="card">
+        <img
+          src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+          class="card-img-top"
+          alt="product"
+        />
+        <div class="card-body">
+          <h5 class="card-title text-truncate">{{ movie.title }}</h5>
+          <a class="btn" (click)="addToFavs(movie)" id="addBtn"
+            ><i class="bi bi-heart"></i
+          ></a>
+          <a class="btn d-none" (click)="addToFavs(movie)" id="delBtn"
+            ><i class="bi bi-heart"></i
+          ></a>
+        </div>
       </div>
     </div>
   </div>

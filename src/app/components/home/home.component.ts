@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
+import { MovieService } from 'src/app/service/movie.service';
+import { Movie } from 'src/app/models/movie';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,16 @@ import { AuthService } from 'src/app/auth/auth.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private authSrv: AuthService) {}
+  topMovies!: Movie[];
+
+  constructor(private authSrv: AuthService, private movieSrv: MovieService) {}
 
   ngOnInit(): void {
     this.authSrv.restore();
+
+    this.movieSrv.getTopMovies().subscribe((topMovies: Movie[]) => {
+      this.topMovies = topMovies;
+      console.log(topMovies);
+    });
   }
 }

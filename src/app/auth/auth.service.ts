@@ -65,6 +65,15 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
+  getUserId(): number | null {
+    const user = localStorage.getItem('user');
+    if (user) {
+      const userData: AuthData = JSON.parse(user);
+      return userData.user.id;
+    }
+    return null;
+  }
+
   private errors(err: any) {
     console.log(err);
     switch (err.error) {

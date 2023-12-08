@@ -1,1 +1,22 @@
-<h1 class="text-center">Home Page</h1>
+<div class="container mt-5 d-flex justify-content-center">
+  <h4>See what's new...</h4>
+</div>
+
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div *ngFor="let topMovie of topMovies" class="col mb-3">
+      <div class="card">
+        <div class="card text-bg-dark">
+          <img
+            src="http://image.tmdb.org/t/p/w500{{ topMovie.poster_path }}"
+            class="card-img"
+            alt="movie poster"
+          />
+          <div class="card-img-overlay">
+            <h5 class="card-title text-truncate">{{ topMovie.title }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

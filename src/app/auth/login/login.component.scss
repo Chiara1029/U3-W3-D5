@@ -1,6 +1,19 @@
 .container{
     width: 30em;
-    margin-top: 5em;
     padding: 2em;
-    background-color: grey;
+    background-color: #792124;
+    color: #FFD159;
+    border-radius: 10px;
+}
+
+.btn{
+    background-color: #FFD159;
+    color: #792124;
+    border: none
+}
+
+:host{
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 4rem);
 }

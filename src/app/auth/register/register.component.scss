@@ -1,0 +1,19 @@
+.container{
+    width: 30em;
+    padding: 2em;
+    background-color: #911315;
+    color: #FFA118;
+    border-radius: 10px;
+}
+
+.btn{
+    background-color: #FFA118;
+    color: #911315;
+    border: none
+}
+
+:host{
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 4rem);
+}
