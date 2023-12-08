@@ -9,21 +9,19 @@
           <span>31415926</span>
         </span>
       </div>
-      <div class="number">1</div>
-      <!--ID UTENTE-->
+      <div class="number">{{ userInfo!.id }}</div>
       <div class="invite">Invite for you</div>
     </div>
     <div class="check">
       <div class="big">
-        Nome <br />
-        Cognome
+        {{ userInfo!.nome }} <br />
+        {{ userInfo!.cognome }}
       </div>
-      <div class="number">#1</div>
-      <!--ID UTENTE-->
+      <div class="number">#{{ userInfo!.id }}</div>
       <div class="info">
         <section>
           <div class="title">Email</div>
-          <div>Email utente</div>
+          <div>{{ userInfo!.email }}</div>
         </section>
         <section>
           <div class="title">Issued By</div>
@@ -33,6 +31,29 @@
           <div class="title">Invite Number</div>
           <div>31415926</div>
         </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="favs">
+  <h4>Favorite Movies:</h4>
+</div>
+
+<div class="container mt-5">
+  <div class="row mb-3">
+    <div *ngFor="let userFav of userFavs" class="col mb-3">
+      <div class="card">
+        <div class="card text-bg-dark">
+          <img
+            src="http://image.tmdb.org/t/p/w500{{ userFav.poster_path }}"
+            class="card-img"
+            alt="movie poster"
+          />
+          <div class="card-img-overlay">
+            <h5 class="card-title text-truncate">{{ userFav.title }}</h5>
+          </div>
+        </div>
       </div>
     </div>
   </div>

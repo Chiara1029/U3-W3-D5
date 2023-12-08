@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, throwError, tap, catchError } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UserInfo } from '../models/user-info';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -76,9 +75,13 @@ export class AuthService {
     return null;
   }
 
-  getUserInfo(userId: number): Observable<UserInfo> {
-    const url = `${this.apiURL}/users/${userId}`;
-    return this.http.get<UserInfo>(url);
+  getUserInfo(userId: number): UserInfo | null {
+    const user = localStorage.getItem('user');
+    if (user) {
+      const userInfo: UserInfo = JSON.parse(user).user;
+      return userInfo;
+    }
+    return null;
   }
 
   private errors(err: any) {

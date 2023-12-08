@@ -30,7 +30,6 @@ export class MoviesComponent implements OnInit {
 
     this.movieSrv.getMovies().subscribe((movies: Movie[]) => {
       this.movies = movies;
-      console.log(movies);
       this.userId = this.authSrv.getUserId() || 0;
 
       this.http

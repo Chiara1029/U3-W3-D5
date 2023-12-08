@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
     this.movieSrv.getTopMovies().subscribe((topMovies: Movie[]) => {
       this.topMovies = topMovies;
-      console.log(topMovies);
     });
   }
 }
