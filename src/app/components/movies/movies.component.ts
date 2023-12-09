@@ -61,35 +61,30 @@ export class MoviesComponent implements OnInit {
       .post<Favorite>(`${this.apiURL}/favorites`, favorite)
       .subscribe((response) => {
         console.log('Aggiunto ai preferiti:', response);
-      });
-    this.http
-      .get<Favorite[]>(`${this.apiURL}/favorites`)
-      .subscribe((response) => {
-        console.log('Lista preferiti:', response);
-        let update: Favorite[] = response.filter(
-          (movie) => movie.userId === this.userId
-        );
-        this.favorities = update;
+        this.updateFavorites();
       });
   }
 
   deleteFav(movie: Movie): void {
-    let selectedItem: any = this.favorities.find(
-      (movie) => movie.movieId === movie.movieId
+    const selectedItem: any = this.favorities.find(
+      (fav) => fav.movieId === movie.id
     );
 
     this.http
-      .delete<Favorite>(`http://localhost:4201/favorites/${selectedItem.id}`)
+      .delete<Favorite>(`${this.apiURL}/favorites/${selectedItem.id}`)
       .subscribe((response) => {
         console.log('Eliminato dai preferiti:', response);
+        this.updateFavorites();
       });
+  }
 
+  updateFavorites(): void {
     this.http
       .get<Favorite[]>(`${this.apiURL}/favorites`)
       .subscribe((response) => {
         console.log('Lista preferiti:', response);
         let update: Favorite[] = response.filter(
-          (movie) => movie.userId === this.userId
+          (fav) => fav.userId === this.userId
         );
         this.favorities = update;
       });
