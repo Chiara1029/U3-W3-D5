@@ -1,4 +1,4 @@
-<div class="container ticket-container mt-5">
+<div class="container ticket-container mt-5 w-100">
   <div class="ticket">
     <div class="stub">
       <div class="top">
@@ -40,8 +40,11 @@
   <div class="favs text-center">
     <h4>Favorite Movies:</h4>
   </div>
-  <div class="row mb-3">
-    <div *ngFor="let userFav of userFavs" class="col mb-3">
+  <div class="row mb-3 d-flex justify-content-center">
+    <div
+      *ngFor="let userFav of userFavs"
+      class="col-sm-6 col-md-4 col-lg-2 mb-3"
+    >
       <div class="card h-100">
         <div class="card text-bg-dark">
           <img

@@ -1,12 +1,14 @@
 h4 {
   color: #ffd159;
 }
-
+.ticket-container {
+  width: 700px;
+}
 .ticket {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 700px;
+  width: 100%;
   margin: 20px auto;
 
   .stub,
@@ -18,7 +20,7 @@ h4 {
 .stub {
   background: #232f4b;
   height: 250px;
-  width: 250px;
+  max-width: 250px;
   color: white;
   padding: 20px;
   position: relative;
@@ -88,7 +90,7 @@ h4 {
 .check {
   background: #fff;
   height: 250px;
-  width: 450px;
+  max-width: 450px;
   padding: 40px;
   position: relative;
 
@@ -150,5 +152,5 @@ h4 {
 }
 
 .favs-container {
-  width: 600px;
+  width: 70%;
 }
