@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(private authSrv: AuthService) {}
 
   ngOnInit(): void {
+    this.authSrv.restore();
     this.authSrv.user$.subscribe((_user) => {
       this.utente = _user;
     });

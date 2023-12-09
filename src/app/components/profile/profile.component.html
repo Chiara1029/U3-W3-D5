@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container ticket-container mt-5">
   <div class="ticket">
     <div class="stub">
       <div class="top">
@@ -36,23 +36,20 @@
   </div>
 </div>
 
-<div class="favs">
-  <h4>Favorite Movies:</h4>
-</div>
-
-<div class="container mt-5">
+<div class="container favs-container mt-5">
+  <div class="favs text-center">
+    <h4>Favorite Movies:</h4>
+  </div>
   <div class="row mb-3">
     <div *ngFor="let userFav of userFavs" class="col mb-3">
-      <div class="card">
+      <div class="card h-100">
         <div class="card text-bg-dark">
           <img
             src="http://image.tmdb.org/t/p/w500{{ userFav.poster_path }}"
-            class="card-img"
+            class="card-img h-100"
             alt="movie poster"
           />
-          <div class="card-img-overlay">
-            <h5 class="card-title text-truncate">{{ userFav.title }}</h5>
-          </div>
+          <div class="card-img-overlay"></div>
         </div>
       </div>
     </div>

@@ -1,33 +1,27 @@
-a{
-    color: #FFA118;
-}
-.navbar{
-    background-color: #911315;
-    display: flex;
-    align-items: center;
-}
-h6{
-    padding: 0;
-    margin: 0;
-    color: #FFA118;
+h6 {
+  padding: 0;
+  margin: 0;
+  color: #ffd159;
 }
 
-.add-btn{
-    background-color: #911315;
-    color: #FFA118;
-    border: none;
+.add-btn {
+  background-color: #232f4b;
+  color: #ffd159;
+  border: none;
 }
-.del-btn{
-    background-color: #FFA118;
-    color: #911315;
-    border: none;
+.del-btn {
+  background-color: #ffd159;
+  color: #171f32;
+  border: none;
 }
-.saved{
-    background-color: #FFA118;
+.saved {
+  background-color: #ffd159;
 }
-.card{
-    width: 250px;
+.card {
+  width: 250px;
+  background-color: #14171f;
+  color: #ffd159;
 }
-img{
-    height: 350px;
+img {
+  height: 350px;
 }

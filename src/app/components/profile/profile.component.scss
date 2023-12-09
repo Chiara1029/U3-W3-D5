@@ -1,46 +1,53 @@
+h4 {
+  color: #ffd159;
+}
+
 .ticket {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 700px;
   margin: 20px auto;
-  
-  .stub, .check {
+
+  .stub,
+  .check {
     box-sizing: border-box;
   }
 }
 
 .stub {
-  background: #561316;;
+  background: #232f4b;
   height: 250px;
   width: 250px;
   color: white;
   padding: 20px;
   position: relative;
-  
+
   &:before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; right: 0;
-    border-top: 20px solid #561316;
-    border-left: 20px solid #561316;
+    top: 0;
+    right: 0;
+    border-top: 20px solid #232f4b;
+    border-left: 20px solid #232f4b;
     width: 0;
   }
   &:after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0; right: 0;
-    border-bottom: 20px solid #561316;
-    border-left: 20px solid #561316;
+    bottom: 0;
+    right: 0;
+    border-bottom: 20px solid #232f4b;
+    border-left: 20px solid #232f4b;
     width: 0;
   }
-  
+
   .top {
     display: flex;
     align-items: center;
     height: 40px;
     text-transform: uppercase;
-    
+
     .line {
       display: block;
       background: #fff;
@@ -66,14 +73,14 @@
     bottom: 45px;
     color: white;
     width: 20%;
-    
+
     &:before {
-      content: '';
+      content: "";
       background: #fff;
       display: block;
       width: 40px;
       height: 3px;
-      margin-bottom: 5px;     
+      margin-bottom: 5px;
     }
   }
 }
@@ -84,49 +91,51 @@
   width: 450px;
   padding: 40px;
   position: relative;
-  
+
   &:before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 0; left: 0;
-    border-top: 20px solid #561316;;
+    top: 0;
+    left: 0;
+    border-top: 20px solid #232f4b;
     border-right: 20px solid #fff;
     width: 0;
   }
   &:after {
-    content: '';
+    content: "";
     position: absolute;
-    bottom: 0; left: 0;
-    border-bottom: 20px solid #561316;;
+    bottom: 0;
+    left: 0;
+    border-bottom: 20px solid #232f4b;
     border-right: 20px solid #fff;
     width: 0;
   }
-  
+
   .big {
     font-size: 80px;
     font-weight: 900;
-    line-height: .8em;
+    line-height: 0.8em;
   }
   .number {
     position: absolute;
     top: 50px;
     right: 50px;
-    color: #561316;
+    color: #232f4b;
     font-size: 40px;
   }
   .info {
     display: flex;
     justify-content: flex-start;
-    
+
     font-size: 12px;
     margin-top: 20px;
     width: 100%;
-    
+
     section {
       margin-right: 50px;
       &:before {
-        content: '';
-        background: #561316;;
+        content: "";
+        background: #232f4b;
         display: block;
         width: 40px;
         height: 3px;
@@ -138,4 +147,8 @@
       }
     }
   }
+}
+
+.favs-container {
+  width: 600px;
 }

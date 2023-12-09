@@ -10,8 +10,8 @@
     {
       "email": "chiarapuleio@yahoo.it",
       "password": "$2a$10$hdcuWtylxovQCdaWjMEI6eJVQqvBSVqlMOOCvAlEw4Hg73VmHb3Pm",
-      "nome": "CHIARA",
-      "cognome": "PULEIO",
+      "nome": "Chiara",
+      "cognome": "Puleio",
       "id": 3
     },
     {
@@ -47,6 +47,16 @@
       "movieId": 460465,
       "userId": 3,
       "id": 12
+    },
+    {
+      "movieId": 615457,
+      "userId": 4,
+      "id": 13
+    },
+    {
+      "movieId": 573680,
+      "userId": 4,
+      "id": 14
     }
   ],
   "movies-popular": [
