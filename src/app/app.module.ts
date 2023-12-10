@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { AuthGuard } from './auth/auth.guard';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Route[] = [
   {
@@ -52,6 +53,7 @@ const routes: Route[] = [
     NavbarComponent,
     ProfileComponent,
     MoviesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
